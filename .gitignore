@@ -1,0 +1,8 @@
+# IntelliJ/Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac
+.DS_Store
