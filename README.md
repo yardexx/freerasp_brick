@@ -10,13 +10,33 @@
 A brick to automate configuration of freeRASP <a href="https://pub.dev/packages/freerasp">freeRASP</a>.
 </p>
 
-A brick to automate work with [freeRASP][8].
+> 🚧 This brick experimental and not stable! Changes to API reserved. 🚧
+
+## Overview
+Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-prone 
+way to create configuration.
+
+## Features 🧰
+- 🛠 Configuration generation
+- 🎯 Dependency check using `pub get`
+- 🔧 Fix apply using `dart fix`
 
 ## How to use 🚀
 
+Generate configuration:
 ```
 mason make freerasp_brick
 ```
+
+Import it and call `start()`:
+```dart
+import 'freerasp/freerasp.g.dart';
+
+talsec.start();
+```
+
+You can edit `freerasp_callback.g.dart` to provide own reactions or made your own `TalsecCallback`
+and provide it in `freerasp.g.dart`;
 
 ## Variables 📦
 | Variable     | Description                   | Default         | Type   | Conditional | When            |
@@ -29,7 +49,7 @@ mason make freerasp_brick
 | bundle_id    | iOS app id                    | com.example.app | String | true        | ios == true     |
 | team_id      | iOS team id                   | N/A             | String | true        | ios == true     |
 
-## Hooks 🪝
+## Hooks 🎣
 | Type     | Enabled | Can be disabled |
 |----------|---------|-----------------|
 | pre-gen  | ✅       | ❌               |
