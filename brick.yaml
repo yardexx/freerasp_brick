@@ -7,8 +7,17 @@ environment:
   mason: ">=0.1.0-dev.26 <0.1.0"
 
 vars:
-  name:
+  watcher_mail:
     type: string
-    description: Your name
-    default: Dash
-    prompt: What is your name?
+    description: Watcher mail
+    prompt: An email for security reports
+  android:
+    type: boolean
+    description: Add Android configuration
+    prompt: Add Android configuration?
+    default: true
+  ios:
+    type: boolean
+    description: Add iOS configuration
+    prompt: Add iOS configuration?
+    default: true
