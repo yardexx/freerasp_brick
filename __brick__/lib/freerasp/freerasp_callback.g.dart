@@ -1,3 +1,7 @@
+// GENERATED FILE
+// Generated using mason
+// mason • lay the foundation!
+
 part of 'freerasp.g.dart';
 
 final callback = TalsecCallback({{#android}}
