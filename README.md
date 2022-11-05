@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-A brick to automate configuration of freeRASP <a href="https://pub.dev/packages/freerasp">freeRASP</a>.
+A brick for configuration generation and automatic setup for <a href="https://pub.dev/packages/freerasp">freeRASP</a>.
 </p>
 
-> 🚧 This brick experimental and not stable! Changes to API reserved. 🚧
+> 🚧 This brick is experimental and not stable! Changes to API reserved. 🚧
 
 ## Overview
 Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-prone 
@@ -20,6 +20,19 @@ way to create configuration.
 - 🛠 Configuration generation
 - 🎯 Dependency check using `pub get`
 - 🔧 Fix apply using `dart fix`
+
+## How to add ➕
+This brick is currently **NOT** available on [brickhub.dev](https://brickhub.dev/). 
+
+For now, you can add via git-url:
+```
+mason add --git-url https://github.com/yardexx/freerasp_brick freerasp_brick
+```
+
+Globally available:
+```
+mason add -g --git-url https://github.com/yardexx/freerasp_brick freerasp_brick
+```
 
 ## How to use 🚀
 
@@ -55,19 +68,32 @@ and provide it in `freerasp.g.dart`;
 | pre-gen  | ✅       | ❌               |
 | post-gen | ✅       | ❌               |
 
-## Getting started with [mason][1]  🧱
+## Getting started with [freeRASP][freerasp-pubdev]
+- [freeRASP on GitHub][freerasp-github]
+- [freeRASP website][freerasp-website]
+- [Medium article: freeRASP — In-App protection SDK and app security monitoring service][freerasp-medium]
+
+## Getting started with [mason][mason-github]  🧱
 
 If this is your first touch with mason, please refer to resources to get started:
 
-- [Mason on pub.dev][1]
-- [Official Mason Documentation][2]
-- [Code generation with Mason Blog][3]
-- [Very Good Livestream: Felix Angelov Demos Mason][4]
+- [Mason on GitHub][mason-github]
+- [Official Mason Documentation][mason-docs]
+- [Code generation with Mason Blog][mason-blog]
+- [Very Good Livestream: Felix Angelov Demos Mason][mason-yt]
 
-[1]: https://github.com/felangel/mason
+[mason-github]: https://github.com/felangel/mason
 
-[2]: https://github.com/felangel/mason/tree/master/packages/mason_cli#readme
+[mason-docs]: https://github.com/felangel/mason/tree/master/packages/mason_cli#readme
 
-[3]: https://verygood.ventures/blog/code-generation-with-mason
+[mason-blog]: https://verygood.ventures/blog/code-generation-with-mason
 
-[4]: https://youtu.be/G4PTjA6tpTU
+[mason-yt]: https://youtu.be/G4PTjA6tpTU
+
+[freerasp-github]: https://github.com/talsec/Free-RASP-Flutter
+
+[freerasp-pubdev]: https://pub.dev/packages/freerasp
+
+[freerasp-website]: https://www.talsec.app/freerasp-in-app-protection-security-talsec
+
+[freerasp-medium]: https://medium.com/geekculture/freerasp-in-app-protection-sdk-and-app-security-monitoring-service-de12d8e49400

@@ -1,3 +1,7 @@
+// GENERATED FILE
+// Generated using mason
+// mason • lay the foundation!
+
 import 'package:freerasp/talsec_app.dart';
 part 'freerasp_callback.g.dart';
 
