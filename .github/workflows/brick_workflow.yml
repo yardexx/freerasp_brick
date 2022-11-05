@@ -3,8 +3,8 @@ name: Very Good Workflow
 on:
   pull_request:
     paths:
-      - "lib/**"
-      - "test/**"
+      - "hooks/**"
+      - "hooks/test/**"
       - "pubspec.yaml"
   push:
     branches:
