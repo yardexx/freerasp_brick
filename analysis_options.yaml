@@ -1,0 +1,3 @@
+# Don't analyze templates
+analyzer:
+  exclude: [__brick__]

@@ -5,7 +5,7 @@ import 'package:mason/mason.dart';
 const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
 
-void run(HookContext context) async {
+Future<void> run(HookContext context) async {
   final logger = context.logger;
 
   await _runPubAdd(logger);
@@ -42,6 +42,6 @@ Future<void> _runDartFix(Logger logger) async {
   final progress = logger.progress('Running dart fix --apply');
   final result = await Process.run('dart', ['fix', '--apply']);
   return result.exitCode == 0
-      ? progress.complete('Fix applied')
-      : progress.fail('Fix couldn\'t be applied');
+      ? progress.complete('Fix applied.')
+      : progress.fail("Fix couldn't be applied");
 }
