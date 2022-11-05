@@ -3,8 +3,8 @@ import 'package:mason/mason.dart';
 const defaultAppPackage = 'com.example.app';
 
 void run(HookContext context) {
-  final isAndroid = context.vars['android'];
-  final isIOS = context.vars['ios'];
+  final isAndroid = context.vars['android'] as bool;
+  final isIOS = context.vars['ios'] as bool;
 
   if (isAndroid) parseAndroidData(context);
 
@@ -28,8 +28,10 @@ void parseCupertinoData(HookContext context) {
 void parseAndroidData(HookContext context) {
   final logger = context.logger;
 
-  final packageName = logger.prompt("What's app package name?",
-      defaultValue: defaultAppPackage);
+  final packageName = logger.prompt(
+    "What's app package name?",
+    defaultValue: defaultAppPackage,
+  );
   final signingHash = logger.prompt("What's app singing hash?");
 
   context.vars.addAll({
