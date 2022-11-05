@@ -30,6 +30,7 @@ Future<void> _runPubAdd(Logger logger) async {
   );
 }
 
+
 Future<void> _runPubGet(Logger logger) async {
   final progress = logger.progress('Running dart pub get');
   final result = await Process.run('dart', ['pub', 'get']);
