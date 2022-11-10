@@ -6,8 +6,8 @@ const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
 
 class B {
-  static bool foo(bool a){
-    if (a){
+  static bool foo(bool a) {
+    if (a) {
       return a;
     }
     return !a;
