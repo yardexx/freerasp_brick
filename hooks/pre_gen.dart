@@ -2,7 +2,6 @@ import 'package:mason/mason.dart';
 
 const defaultAppPackage = 'com.example.app';
 
-
 void run(HookContext context) {
   final isAndroid = context.vars['android'] as bool;
   final isIOS = context.vars['ios'] as bool;
