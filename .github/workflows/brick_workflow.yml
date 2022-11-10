@@ -5,14 +5,14 @@ on:
     paths:
       - "hooks/**"
       - "hooks/test/**"
-      - "pubspec.yaml"
+      - "hooks/pubspec.yaml"
   push:
     branches:
       - main
     paths:
       - "hooks/**"
       - "hooks/test/**"
-      - "pubspec.yaml"
+      - "hooks/pubspec.yaml"
 
 jobs:
   semantic-pull-request:
@@ -20,12 +20,15 @@ jobs:
 
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
-
+    with:
+      working_directory: "hooks"
   ci:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./hooks
+        # Coverage is informative and handled by codecov
+        min_coverage: 0
 
     steps:
       - uses: actions/checkout@v2
