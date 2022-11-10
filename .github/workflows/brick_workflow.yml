@@ -20,17 +20,11 @@ jobs:
   semantic-pull-request:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
 
-  build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
-    with:
-      working_directory: "hooks"
-      min_coverage: 0
   ci:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./hooks
-        # Coverage is informative and handled by codecov
 
     steps:
       - uses: actions/checkout@v2
