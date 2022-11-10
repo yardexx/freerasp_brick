@@ -3,6 +3,7 @@ name: Very Good Workflow
 on:
   pull_request:
     paths:
+      - ".github/workflows/brick_workflow.yaml"
       - "hooks/**"
       - "hooks/test/**"
       - "hooks/pubspec.yaml"
@@ -10,6 +11,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/brick_workflow.yaml"
       - "hooks/**"
       - "hooks/test/**"
       - "hooks/pubspec.yaml"
