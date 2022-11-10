@@ -6,6 +6,7 @@ const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
 
 class B {
+  // ignore: avoid_positional_boolean_parameters
   static bool foo(bool a) {
     if (a) {
       return a;
