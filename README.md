@@ -5,14 +5,16 @@
 <a href="https://pub.dev/packages/freerasp"><img src="https://img.shields.io/badge/Supported%20freeRASP-%5E3.0.0-brightgreen" alt="Supported freeRASP"/></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
 <a href="https://pub.dev/packages/very_good_analysis"><img src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg" alt="style: very good analysis"></a>
+<a href="https://codecov.io/gh/yardexx/freerasp_brick"><img src="https://codecov.io/gh/yardexx/freerasp_brick/branch/master/graph/badge.svg?token=300N5C20OB"/></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
 </p>
 
 <p align="center">
-A brick for configuration generation and automatic setup for <a href="https://pub.dev/packages/freerasp">freeRASP</a>.
+A brick for <a href="https://pub.dev/packages/freerasp">freeRASP</a> to generate configuration code 
+and automate necessary setup.
 </p>
 
-> 🚧 This brick is experimental and not stable! Changes to API reserved. 🚧
+> 🚧 This brick is experimental and not stable! Changes to API reserved.
 
 ## Overview
 Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-prone 
@@ -70,12 +72,17 @@ and provide it in `freerasp.g.dart`;
 | pre-gen  | ✅       | ❌               |
 | post-gen | ✅       | ❌               |
 
-## Getting started with [freeRASP][freerasp-pubdev]
+## Contribution 🤝
+If you have issue, find a bug, or new feature proposal, feel free to [open issue](https://github.com/yardexx/freerasp_brick/issues) 
+or [create PR](https://github.com/yardexx/freerasp_brick/pulls). 
+
+## Useful resources 📚
+### Getting started with [freeRASP][freerasp-pubdev] 🛡
 - [freeRASP on GitHub][freerasp-github]
 - [freeRASP website][freerasp-website]
 - [Medium article: freeRASP — In-App protection SDK and app security monitoring service][freerasp-medium]
 
-## Getting started with [mason][mason-github]  🧱
+### Getting started with [mason][mason-github]  🧱
 
 If this is your first touch with mason, please refer to resources to get started:
 
