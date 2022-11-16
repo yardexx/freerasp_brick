@@ -1,6 +1,5 @@
 /// Extension to simplify work with String lists.
 extension ListX on List<String> {
-
   /// Returns index of first matched [String] in [List].
   ///
   /// Throws IterableElementError.noElement() if given [String] cannot be
@@ -37,7 +36,7 @@ extension StringX on String {
   ///
   /// Throws [FormatException] (from [int.parse]) when instance cannot be
   /// converted.
-  int toInt(){
+  int toInt() {
     return int.parse(this);
   }
 }
