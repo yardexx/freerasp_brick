@@ -24,7 +24,7 @@ jobs:
         working-directory: ./hooks
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.5.0
       - uses: dart-lang/setup-dart@v1
 
       - name: Install Dependencies
@@ -42,4 +42,4 @@ jobs:
           dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3.1.1
