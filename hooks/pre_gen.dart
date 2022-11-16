@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:mason/mason.dart';
 
 const defaultAppPackage = 'com.example.app';

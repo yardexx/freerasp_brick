@@ -1,19 +1,10 @@
+// coverage:ignore-file
 import 'dart:io';
 
 import 'package:mason/mason.dart';
 
 const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
-
-class B {
-  // ignore: avoid_positional_boolean_parameters
-  static bool foo(bool a) {
-    if (a) {
-      return a;
-    }
-    return !a;
-  }
-}
 
 Future<void> run(HookContext context) async {
   final logger = context.logger;
