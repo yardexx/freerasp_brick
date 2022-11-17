@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:mason/mason.dart';
 
+import 'utils/gradle_updater.dart';
+
 const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
 
@@ -12,6 +14,9 @@ Future<void> run(HookContext context) async {
   await _runPubAdd(logger);
   await _runPubGet(logger);
   await _runDartFix(logger);
+
+  // TODO(yardexx): This line won't compile
+  gradleUpdate('');
 }
 
 Future<void> _runPubAdd(Logger logger) async {
