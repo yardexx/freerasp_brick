@@ -2,8 +2,7 @@ import 'package:file/file.dart';
 import 'package:file/memory.dart';
 import 'package:test/test.dart';
 
-import '../../errors/errors.dart';
-import '../../utils/gradle_updater.dart';
+import '../../post_gen.dart';
 import '../test_inputs/gradle_files/gradle_files.dart';
 
 void main() {
@@ -31,12 +30,12 @@ void main() {
           'Should update SDK version when value is "flutter.minSdkVersion" '
           '(API 16)', () {
         expect(
-          () => GradleUpdater.update('variable_build.gradle', mockFileSystem),
-          returnsNormally,
+          GradleUpdater.update('variable_build.gradle', mockFileSystem),
+          true,
         );
 
         final updatedLevel = mockFileSystem
-            .file('value_build.gradle')
+            .file('variable_build.gradle')
             .readAsLinesSync()
             .firstWhere((line) => line.contains('minSdkVersion'))
             .split(' ')
@@ -44,7 +43,7 @@ void main() {
 
         expect(
           updatedLevel,
-          equals(GradleUpdater.minSupportedVersion.toString()),
+          equals(minSupportedVersion.toString()),
         );
       });
 
@@ -52,8 +51,8 @@ void main() {
           'Should update SDK version when value is lower than currently '
           'supported', () {
         expect(
-          () => GradleUpdater.update('value_build.gradle', mockFileSystem),
-          returnsNormally,
+          GradleUpdater.update('value_build.gradle', mockFileSystem),
+          true,
         );
 
         final updatedLevel = mockFileSystem
@@ -65,7 +64,7 @@ void main() {
 
         expect(
           updatedLevel,
-          equals(GradleUpdater.minSupportedVersion.toString()),
+          equals(minSupportedVersion.toString()),
         );
       });
 
@@ -73,8 +72,8 @@ void main() {
           'Should NOT update SDK version when value is equal or higher than '
           'currently supported', () {
         expect(
-          () => GradleUpdater.update('supported_build.gradle', mockFileSystem),
-          returnsNormally,
+          GradleUpdater.update('supported_build.gradle', mockFileSystem),
+          false,
         );
 
         final updatedLevel = mockFileSystem
@@ -116,8 +115,7 @@ void main() {
         'minSdkVersion key',
         () {
           expect(
-            () =>
-                GradleUpdater.update('missing_key.gradle', MemoryFileSystem()),
+            () => GradleUpdater.update('missing_key.gradle', mockFileSystem),
             throwsA(isA<FreeRaspBrickException>()),
           );
         },
@@ -127,7 +125,7 @@ void main() {
           'Should throw Exception when gradle file does not contain value of '
           'minSdkVersion key', () {
         expect(
-          () => gradleUpdate('missing_value.gradle'),
+          () => GradleUpdater.update('missing_value.gradle', mockFileSystem),
           throwsA(isA<FreeRaspBrickException>()),
         );
       });
