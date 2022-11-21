@@ -2,7 +2,8 @@ import 'package:file/file.dart';
 import 'package:file/memory.dart';
 import 'package:test/test.dart';
 
-import '../../post_gen.dart';
+import '../../errors/errors.dart';
+import '../../utils/utils.dart';
 import '../test_inputs/gradle_files/gradle_files.dart';
 
 void main() {
@@ -43,7 +44,7 @@ void main() {
 
         expect(
           updatedLevel,
-          equals(minSupportedVersion.toString()),
+          equals(GradleUpdater.minSupportedVersion.toString()),
         );
       });
 
@@ -64,7 +65,7 @@ void main() {
 
         expect(
           updatedLevel,
-          equals(minSupportedVersion.toString()),
+          equals(GradleUpdater.minSupportedVersion.toString()),
         );
       });
 
