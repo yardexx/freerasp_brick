@@ -1,6 +1,9 @@
+// coverage:ignore-file
 import 'dart:io';
 
 import 'package:mason/mason.dart';
+
+import 'utils/gradle_updater.dart';
 
 const String androidBuild = 'build.gradle';
 const String flutterBuild = 'lib';
@@ -11,6 +14,7 @@ Future<void> run(HookContext context) async {
   await _runPubAdd(logger);
   await _runPubGet(logger);
   await _runDartFix(logger);
+  await _runGradleCheck(context);
 }
 
 Future<void> _runPubAdd(Logger logger) async {
@@ -42,6 +46,26 @@ Future<void> _runDartFix(Logger logger) async {
   final progress = logger.progress('Running dart fix --apply');
   final result = await Process.run('dart', ['fix', '--apply']);
   return result.exitCode == 0
-      ? progress.complete('Fix applied.')
+      ? progress.complete('Fix applied')
       : progress.fail("Fix couldn't be applied");
+}
+
+Future<void> _runGradleCheck(HookContext context) async {
+  final progress = context.logger.progress('Checking build.gradle file');
+
+  if (!(context.vars['check_gradle'] as bool)) {
+    progress.complete('Gradle check not required. Skipping...');
+    return;
+  }
+
+  try {
+    final hasUpdated = gradleUpdate('android/app/build.gradle');
+    progress.complete(
+      hasUpdated
+          ? 'build.gradle successfully updated'
+          : 'build.gradle already contains supported API level',
+    );
+  } catch (_) {
+    progress.fail("Couldn't update build.gradle");
+  }
 }

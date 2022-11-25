@@ -4,7 +4,9 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  file: ^6.1.4
   mason: ^0.1.0-dev
 
 dev_dependencies:
+  test: ^1.22.0
   very_good_analysis: ^3.1.0

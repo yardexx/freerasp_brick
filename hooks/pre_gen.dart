@@ -1,4 +1,7 @@
+// coverage:ignore-file
 import 'package:mason/mason.dart';
+
+import 'extensions.dart';
 
 const defaultAppPackage = 'com.example.app';
 
@@ -40,22 +43,14 @@ void parseAndroidData(HookContext context) {
 
   final signingHash = logger.masonPrompt("What's app singing hash?");
 
+  final checkGradle = logger.masonConfirm(
+    'Do you want to check and update API level (minSdkVersion)?',
+    defaultValue: true,
+  );
+
   context.vars.addAll({
     'package_name': packageName,
     'signing_hash': signingHash,
+    'check_gradle': checkGradle,
   });
-}
-
-extension LoggerX on Logger {
-  String masonPrompt(
-    String? message, {
-    Object? defaultValue,
-    bool hidden = false,
-  }) {
-    return prompt(
-      '${green.wrap('?')} ${message ?? ''}',
-      defaultValue: defaultValue,
-      hidden: hidden,
-    );
-  }
 }

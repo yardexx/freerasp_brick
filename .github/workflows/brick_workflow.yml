@@ -3,24 +3,20 @@ name: Very Good Workflow
 on:
   pull_request:
     paths:
+      - ".github/workflows/brick_workflow.yaml"
       - "hooks/**"
       - "hooks/test/**"
-      - "pubspec.yaml"
+      - "hooks/pubspec.yaml"
   push:
     branches:
       - main
     paths:
+      - ".github/workflows/brick_workflow.yaml"
       - "hooks/**"
       - "hooks/test/**"
-      - "pubspec.yaml"
+      - "hooks/pubspec.yaml"
 
 jobs:
-  semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
-  build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
-
   ci:
     runs-on: ubuntu-latest
     defaults:
@@ -28,7 +24,7 @@ jobs:
         working-directory: ./hooks
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.5.0
       - uses: dart-lang/setup-dart@v1
 
       - name: Install Dependencies
@@ -43,7 +39,7 @@ jobs:
       - name: Run Tests
         run: |
           dart pub global activate coverage 1.3.0
-          dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+          dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3.1.1
