@@ -46,7 +46,7 @@ Future<void> _runDartFix(Logger logger) async {
   final progress = logger.progress('Running dart fix --apply');
   final result = await Process.run('dart', ['fix', '--apply']);
   return result.exitCode == 0
-      ? progress.complete('Fix applied.')
+      ? progress.complete('Fix applied')
       : progress.fail("Fix couldn't be applied");
 }
 
@@ -62,10 +62,10 @@ Future<void> _runGradleCheck(HookContext context) async {
     final hasUpdated = gradleUpdate('android/app/build.gradle');
     progress.complete(
       hasUpdated
-          ? 'build.gradle successfully updated.'
-          : 'build.gradle already contains supported API level.',
+          ? 'build.gradle successfully updated'
+          : 'build.gradle already contains supported API level',
     );
   } catch (_) {
-    progress.fail("Couldn't update build.gradle.");
+    progress.fail("Couldn't update build.gradle");
   }
 }
