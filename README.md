@@ -1,4 +1,4 @@
-# freerasp_brick
+# freeRASP brick
 
 <p align="center">
 <a href="https://github.com/felangel/mason"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge" alt="Powered by Mason"></a>
@@ -14,7 +14,9 @@ A brick for <a href="https://pub.dev/packages/freerasp">freeRASP</a> to generate
 and automate necessary code checks.
 </p>
 
-> 🚧 This brick is experimental and not stable! Changes to API reserved.
+> 🚧 This brick is experimental and not stable! Changes to API/file generation reserved.
+
+> ⚠ This brick is supported for mason version `>=0.1.0-dev.40`.
 
 ## Overview
 Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-prone 
