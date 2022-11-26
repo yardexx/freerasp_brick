@@ -1,6 +1,7 @@
 name: Very Good Workflow
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - ".github/workflows/brick_workflow.yaml"
