@@ -15,6 +15,7 @@ import '../errors/errors.dart';
 ///
 /// If any issues occurs, [FreeRaspBrickException] is thrown.
 class GradleUpdater {
+  // coverage:ignore-line
   const GradleUpdater._();
 
   static const int minSupportedVersion = 21;
@@ -88,5 +89,5 @@ class GradleUpdater {
 }
 
 /// Functional type of call for [GradleUpdater.update].
-//coverage:ignore-line
+// coverage:ignore-line
 bool gradleUpdate(String path) => GradleUpdater.update(path);
