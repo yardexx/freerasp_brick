@@ -32,3 +32,14 @@
 ## 🎯 Improvements
 - Updated README
 - Updated CHANGELOG (uhm... sorry about that 😅)
+
+# 0.0.1-dev.5
+## ✨ New Features
+- Optional automatic iOS script insertion in Runner.xcscheme - experimental (iOS)
+
+## 🎯 Improvements
+- Updated README
+
+## 🛠 Fixed issues
+- Fixed incorrect `mason` version in `brick.yaml`
+- Specified explicit `mason` version to `>=0.1.0-dev.39` in `pubspec.yaml`
