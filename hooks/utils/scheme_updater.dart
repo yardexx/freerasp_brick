@@ -3,8 +3,15 @@ import 'package:file/local.dart';
 
 import '../errors/errors.dart';
 
-class XcschemeUpdater {
-  const XcschemeUpdater._();
+/// A class which adds Talsec pre-build script phase to Xcode project.
+///
+/// [SchemeUpdater] takes [String] path to Runner.xcscheme file which is then
+/// parsed and checked, then checks for "PreActions" and/or "BuildActionEntries"
+/// keys and inserts Talsec pre-build script phase.
+///
+/// If any issues occurs, [FreeRaspBrickException] is thrown.
+class SchemeUpdater {
+  const SchemeUpdater._();
 
   static const _shellScript = r'''
          <ExecutionAction
@@ -28,13 +35,17 @@ class XcschemeUpdater {
       <PreActions>
       </PreActions>''';
 
+  /// Updated xcscheme file at given [path].
+  ///
+  /// Be aware that this method doesn't check if pre-build script phase is
+  /// already present.
+  ///
+  /// Returns true if Talsec pre-build script phase was added, false otherwise.
   static bool update(String path, [FileSystem fs = const LocalFileSystem()]) {
     try {
       _updateFile(fs.file(path));
-    } on FileSystemException {
-      throw FreeRaspBrickException.wtf(
-        message: 'Unable to find Runner.xcscheme file',
-      );
+    } catch (e) {
+      return false;
     }
     return true;
   }
@@ -43,6 +54,12 @@ class XcschemeUpdater {
     return _addScript(schemeFile);
   }
 
+  /// Adds Talsec pre-build script phase to given [schemeFile].
+  ///
+  /// If [schemeFile] doesn't contain "PreActions" tag, it is added. If adding
+  /// "PreActions" tag fails, [FreeRaspBrickException] is thrown.
+  ///
+  /// Throws [FreeRaspBrickException] if any issues occurs.
   static void _addScript(File schemeFile) {
     _checkForPreActions(schemeFile);
 
@@ -65,6 +82,11 @@ class XcschemeUpdater {
     schemeFile.writeAsStringSync(lines.join('\n'));
   }
 
+  /// Checks if [schemeFile] contains "PreActions" tag.
+  ///
+  /// If not, it is added.
+  ///
+  /// Throws [FreeRaspBrickException] if any issues occurs.
   static void _checkForPreActions(File schemeFile) {
     final lines = schemeFile.readAsLinesSync();
 
@@ -91,4 +113,6 @@ class XcschemeUpdater {
   }
 }
 
-bool xcschemeUpdate(String path) => XcschemeUpdater.update(path);
+/// Functional type of call for [SchemeUpdater.update].
+//coverage:ignore-line
+bool xcschemeUpdate(String path) => SchemeUpdater.update(path);
