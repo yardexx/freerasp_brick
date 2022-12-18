@@ -6,7 +6,6 @@ environment:
 dependencies:
   file: ^6.1.4
   mason: ^0.1.0-dev.39
-  xml_parser: ^1.0.0
 
 dev_dependencies:
   test: ^1.22.0
