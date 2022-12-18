@@ -27,9 +27,15 @@ void parseCupertinoData(HookContext context) {
     defaultValue: defaultAppPackage,
   );
 
+  final updateScheme = logger.masonConfirm(
+    'Do you want to update Runner.xcscheme?',
+    defaultValue: true,
+  );
+
   context.vars.addAll({
     'bundle_id': bundleId,
     'team_id': teamId,
+    'update_scheme': updateScheme,
   });
 }
 
@@ -43,7 +49,7 @@ void parseAndroidData(HookContext context) {
 
   final signingHash = logger.masonPrompt("What's app singing hash?");
 
-  final checkGradle = logger.masonConfirm(
+  final updateGradle = logger.masonConfirm(
     'Do you want to check and update API level (minSdkVersion)?',
     defaultValue: true,
   );
@@ -51,6 +57,6 @@ void parseAndroidData(HookContext context) {
   context.vars.addAll({
     'package_name': packageName,
     'signing_hash': signingHash,
-    'check_gradle': checkGradle,
+    'update_gradle': updateGradle,
   });
 }
