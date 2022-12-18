@@ -72,12 +72,6 @@ class SchemeUpdater {
       }
     }
 
-    if (index == -1) {
-      throw FreeRaspBrickException.schemeUpdateFailure(
-        message: 'Unable to find <PreActions> tag',
-      );
-    }
-
     lines.insert(index + 1, _shellScript);
     schemeFile.writeAsStringSync(lines.join('\n'));
   }
