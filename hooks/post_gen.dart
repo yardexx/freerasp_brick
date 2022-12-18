@@ -59,7 +59,7 @@ Future<void> _runGradleCheck(HookContext context) async {
   }
 
   try {
-    final hasUpdated = gradleUpdate('android/app/build.gradle');
+    final hasUpdated = GradleUpdater.update('android/app/build.gradle');
     progress.complete(
       hasUpdated
           ? 'build.gradle successfully updated'
@@ -79,7 +79,7 @@ Future<void> _runSchemeCheck(HookContext context) async {
   }
 
   try {
-    xcschemeUpdate(
+    SchemeUpdater.update(
       'ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme',
     );
   } catch (e) {

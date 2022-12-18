@@ -11,10 +11,7 @@ import '../errors/errors.dart';
 ///
 /// If any issues occurs, [FreeRaspBrickException] is thrown.
 class SchemeUpdater {
-  // coverage:ignore-start
   const SchemeUpdater._();
-
-  // coverage:ignore-end
 
   static const _shellScript = r'''
          <ExecutionAction
@@ -76,11 +73,9 @@ class SchemeUpdater {
     }
 
     if (index == -1) {
-      // coverage:ignore-start
       throw FreeRaspBrickException.schemeUpdateFailure(
         message: 'Unable to find <PreActions> tag',
       );
-      // coverage:ignore-end
     }
 
     lines.insert(index + 1, _shellScript);
@@ -117,8 +112,3 @@ class SchemeUpdater {
     schemeFile.writeAsStringSync(lines.join('\n'));
   }
 }
-
-/// Functional type of call for [SchemeUpdater.update].
-// coverage:ignore-start
-bool xcschemeUpdate(String path) => SchemeUpdater.update(path);
-// coverage:ignore-end
