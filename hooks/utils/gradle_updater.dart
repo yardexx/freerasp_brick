@@ -88,4 +88,5 @@ class GradleUpdater {
 }
 
 /// Functional type of call for [GradleUpdater.update].
+//coverage:ignore-line
 bool gradleUpdate(String path) => GradleUpdater.update(path);
