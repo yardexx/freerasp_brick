@@ -86,6 +86,3 @@ class GradleUpdater {
     }
   }
 }
-
-/// Functional type of call for [GradleUpdater.update].
-bool gradleUpdate(String path) => GradleUpdater.update(path);

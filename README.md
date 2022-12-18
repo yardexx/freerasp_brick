@@ -27,6 +27,7 @@ way to create configuration.
 - 🎯 Dependency check using `pub get`
 - 🔧 Fix apply using `dart fix`
 - 🤖 Android SDK level check and automatic update
+- 🍎 iOS script insertion in Runner.xcscheme (Experimental)
 
 ## How to add ➕
 This brick is currently **NOT** available on [brickhub.dev](https://brickhub.dev/). 

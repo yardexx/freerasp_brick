@@ -32,7 +32,7 @@ void main() {
           '(API 16)', () {
         expect(
           GradleUpdater.update('variable_build.gradle', mockFileSystem),
-          true,
+          isTrue,
         );
 
         final updatedLevel = mockFileSystem

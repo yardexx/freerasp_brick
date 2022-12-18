@@ -15,10 +15,25 @@ class FreeRaspBrickException implements Exception {
     );
   }
 
-  factory FreeRaspBrickException.gradleUpdateFailure({StackTrace? stackTrace}) {
+  factory FreeRaspBrickException.gradleUpdateFailure({
+    String? message,
+    StackTrace? stackTrace,
+  }) {
     return FreeRaspBrickException(
       code: 'gradle-failure',
-      message: 'Issue occurred during update of gradle file.',
+      message: message ?? 'Issue occurred during update of gradle file.',
+      stackTrace: stackTrace,
+    );
+  }
+
+  factory FreeRaspBrickException.schemeUpdateFailure({
+    String? message,
+    StackTrace? stackTrace,
+  }) {
+    return FreeRaspBrickException(
+      code: 'xcscheme-failure',
+      message:
+          message ?? 'Issue occurred during update of Runner.xcscheme file.',
       stackTrace: stackTrace,
     );
   }
