@@ -19,7 +19,7 @@ and automate necessary code checks.
 > ⚠ This brick is supported for mason version `>=0.1.0-dev.40`.
 
 ## Overview
-Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-prone 
+Setting up freeRASP can be quite tedious and repetitive. freerasp_brick provides you error-proof 
 way to create configuration.
 
 ## Features 🧰
