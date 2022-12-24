@@ -1,3 +1,12 @@
+# 0.1.0
+**🎉 First release on BrickHub.dev! 🎉**
+
+## 🎯 Improvements
+- Code checked
+- Updated README
+- Reformatted CHANGELOG
+- Updated prompt messages
+
 # 0.0.1-dev.5
 ## ✨ New Features
 - Optional automatic iOS script insertion in Runner.xcscheme - experimental (iOS)
