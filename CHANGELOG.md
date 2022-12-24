@@ -7,6 +7,9 @@
 - Reformatted CHANGELOG
 - Updated prompt messages
 
+## 🛠 Fixed issues
+- Properly showing progress message when successfully added script (iOS)
+
 # 0.0.1-dev.5
 ## ✨ New Features
 - Optional automatic iOS script insertion in Runner.xcscheme - experimental (iOS)
