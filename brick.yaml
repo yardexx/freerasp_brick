@@ -1,7 +1,7 @@
 name: freerasp_brick
 description: A brick for configuration generation and automatic setup for freeRASP.
 
-version: 0.0.1-dev.5
+version: 0.1.0
 
 environment:
   mason: ">=0.1.0-dev.39 <0.1.0"
