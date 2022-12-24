@@ -28,7 +28,7 @@ void parseCupertinoData(HookContext context) {
   );
 
   final updateScheme = logger.masonConfirm(
-    'Do you want to update Runner.xcscheme?',
+    'Do you want to update Runner.xcscheme? (Experimental)',
     defaultValue: true,
   );
 
