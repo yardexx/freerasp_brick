@@ -1,4 +1,4 @@
-name: Very Good Workflow
+name: Brick Workflow
 
 on:
   workflow_dispatch:
