@@ -79,9 +79,13 @@ Future<void> _runSchemeCheck(HookContext context) async {
   }
 
   try {
-    SchemeUpdater.update(
+    final hasUpdated = SchemeUpdater.update(
       'ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme',
     );
+
+    if (hasUpdated) {
+      progress.complete('Runner.xcscheme successfully updated');
+    }
   } catch (e) {
     progress.fail("Couldn't update xcscheme");
   }
