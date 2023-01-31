@@ -1,6 +1,6 @@
 name: freerasp_brick
 description: A brick for configuration generation and automatic setup for freeRASP.
-
+repository: https://github.com/yardexx/freerasp_brick
 version: 0.1.0
 
 environment:
