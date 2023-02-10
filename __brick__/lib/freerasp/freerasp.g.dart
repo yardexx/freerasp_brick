@@ -9,7 +9,7 @@ TalsecConfig _config = TalsecConfig(
   watcherMail: '{{watcher_mail}}',{{#android}}
   androidConfig: AndroidConfig(
     expectedPackageName: '{{package_name}}',
-    expectedSigningCertificateHash: '{{signing_hash}}',
+    expectedSigningCertificateHashes: {{{signing_hashes}}},
   ),{{/android}}{{#ios}}
   iosConfig: IOSconfig(
     appBundleId: '{{bundle_id}}',

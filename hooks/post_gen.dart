@@ -10,11 +10,16 @@ const String flutterBuild = 'lib';
 
 Future<void> run(HookContext context) async {
   final logger = context.logger;
+
+  final isAndroid = context.vars['android'] as bool;
+  final isIOS = context.vars['ios'] as bool;
+
   await _runPubAdd(logger);
   await _runPubGet(logger);
   await _runDartFix(logger);
-  await _runGradleCheck(context);
-  await _runSchemeCheck(context);
+
+  if (isAndroid) await _runGradleCheck(context);
+  if (isIOS) await _runSchemeCheck(context);
 }
 
 Future<void> _runPubAdd(Logger logger) async {

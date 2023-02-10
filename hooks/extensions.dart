@@ -24,3 +24,13 @@ extension LoggerX on Logger {
     );
   }
 }
+
+extension StringX on String {
+  String toListString() {
+    return split(',')
+        .map((item) => item.trim())
+        .map((item) => "'$item'")
+        .toList()
+        .toString();
+  }
+}
