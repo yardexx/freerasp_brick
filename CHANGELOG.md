@@ -1,3 +1,12 @@
+# 0.2.0
+Version update and bug fixes.
+
+## 🎯 Improvements
+- Added compatibility for freeRASP 4.0.0
+
+## 🛠 Fixed issues
+- Post-script failed when scheme update were set to false
+
 # 0.1.0
 **🎉 First release on BrickHub.dev! 🎉**
 
