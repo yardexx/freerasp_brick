@@ -14,7 +14,6 @@ Future<void> run(HookContext context) async {
   await _runPubGet(logger);
   await _runDartFix(logger);
   await _runGradleCheck(context);
-  await _runSchemeCheck(context);
 }
 
 Future<void> _runPubAdd(Logger logger) async {
@@ -67,26 +66,5 @@ Future<void> _runGradleCheck(HookContext context) async {
     );
   } catch (_) {
     progress.fail("Couldn't update build.gradle");
-  }
-}
-
-Future<void> _runSchemeCheck(HookContext context) async {
-  final progress = context.logger.progress('Checking xcscheme file');
-
-  if (!(context.vars['update_scheme'] as bool)) {
-    progress.complete('Xcscheme check not required. Skipping...');
-    return;
-  }
-
-  try {
-    final hasUpdated = SchemeUpdater.update(
-      'ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme',
-    );
-
-    if (hasUpdated) {
-      progress.complete('Runner.xcscheme successfully updated');
-    }
-  } catch (e) {
-    progress.fail("Couldn't update xcscheme");
   }
 }

@@ -27,15 +27,9 @@ void parseCupertinoData(HookContext context) {
     defaultValue: defaultAppPackage,
   );
 
-  final updateScheme = logger.masonConfirm(
-    'Do you want to update Runner.xcscheme? (Experimental)',
-    defaultValue: true,
-  );
-
   context.vars.addAll({
     'bundle_id': bundleId,
     'team_id': teamId,
-    'update_scheme': updateScheme,
   });
 }
 
