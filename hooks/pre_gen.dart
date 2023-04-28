@@ -41,7 +41,8 @@ void parseAndroidData(HookContext context) {
     defaultValue: defaultAppPackage,
   );
 
-  final signingHash = logger.masonPrompt("What's app singing hash?");
+  final signingHashes =
+      logger.masonPrompt('What are app singing hashes?').toListString();
 
   final updateGradle = logger.masonConfirm(
     'Do you want to check and update API level (minSdkVersion)?',
@@ -50,7 +51,7 @@ void parseAndroidData(HookContext context) {
 
   context.vars.addAll({
     'package_name': packageName,
-    'signing_hash': signingHash,
+    'signing_hashes': signingHashes,
     'update_gradle': updateGradle,
   });
 }
